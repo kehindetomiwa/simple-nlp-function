@@ -1,0 +1,9 @@
+pylint
+pytest
+black
+wikipedia
+ipython
+fire
+fastapi==0.75.0
+pydantic
+uvicorn
