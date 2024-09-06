@@ -7,6 +7,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 from mylib.bot import scrape
+from nlplogic.corenlp import get_phrases
 
 app = FastAPI()
 
@@ -23,7 +24,14 @@ async def scrape_story(wiki: Wiki):
 
 @app.get("/")
 async def root():
-    return {"message": "Hello Functions"}
+    return {"message": "Hello NLP"}
+
+@app.get("/wikiphrases/{name}")
+async def wikiphrase(name: str):
+
+    print(f"Passed in {name}")
+    noun_phrases = get_phrases(name)
+    return {"noun_pherases": noun_pherases}
 
 if __name__ == '__main__':
     uvicorn.run(app, port=8080, host='0.0.0.0')
