@@ -7,7 +7,7 @@ test:
 	python -m pytest -vv test_*.py
 
 format:
-	black *.py
+	black *.py 
 
 lint:
 	pylint --disable=R,C,E1120 *.py
