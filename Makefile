@@ -1,6 +1,7 @@
 install:
 	pip install --upgrade pip &&\
 		pip install --no-cache-dir -r requirements.txt
+	python -m textblob.download_corpora
 
 test:
 	python -m pytest -vv test_*.py
